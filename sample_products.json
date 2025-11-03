@@ -1,0 +1,92 @@
+[
+  {
+    "id": "2796",
+    "model": "iPhone 17 Pro Max",
+    "price": "155 990 руб.",
+    "color": "Deep Blue",
+    "memory": "256Gb",
+    "image": "https://edwardpnz.ru/img_goods/1/5/68c945d32249d.jpg",
+    "category": "iPhone Pro Max"
+  },
+  {
+    "id": "2800",
+    "model": "iPhone 17 Pro",
+    "price": "131 490 руб.",
+    "color": "Deep Blue",
+    "memory": "256Gb",
+    "image": "https://edwardpnz.ru/img_goods/1/5/68cd4800bafe3.jpg",
+    "category": "iPhone Pro"
+  },
+  {
+    "id": "2384",
+    "model": "iPhone 16 Pro Max",
+    "price": "114 990 руб.",
+    "color": "Black Titanium",
+    "memory": "256Gb",
+    "image": "https://edwardpnz.ru/img_goods/1/5/66f144c61d475.jpg",
+    "category": "iPhone Pro Max"
+  },
+  {
+    "id": "1999",
+    "model": "iPhone 15 Pro Max",
+    "price": "110 990 руб.",
+    "color": "Natural Titanium",
+    "memory": "256Gb",
+    "image": "https://edwardpnz.ru/img_goods/1/5/65019fef393d7.jpeg",
+    "category": "iPhone Pro Max"
+  },
+  {
+    "id": "2802",
+    "model": "iPhone Air",
+    "price": "103 990 руб.",
+    "color": "Sky Blue",
+    "memory": "256Gb",
+    "image": "https://edwardpnz.ru/img_goods/1/5/68d12dba6e9b5.jpg",
+    "category": "iPhone"
+  },
+  {
+    "id": "2385",
+    "model": "iPhone 16 Pro",
+    "price": "97 990 руб.",
+    "color": "White Titanium",
+    "memory": "128Gb",
+    "image": "https://edwardpnz.ru/img_goods/1/5/66f14bd32d72e.jpg",
+    "category": "iPhone Pro"
+  },
+  {
+    "id": "2589",
+    "model": "Б/У iPhone 16 Pro Max",
+    "price": "95 990 руб.",
+    "color": "Desert Titanium",
+    "memory": "256Gb",
+    "image": "https://edwardpnz.ru/img_goods/1/6/67d43b0158744.jpg",
+    "category": "iPhone Pro Max"
+  },
+  {
+    "id": "2801",
+    "model": "iPhone 17",
+    "price": "92 490 руб.",
+    "color": "Mist Blue",
+    "memory": "256Gb",
+    "image": "https://edwardpnz.ru/img_goods/1/5/68d12b4ae8a25.jpg",
+    "category": "iPhone"
+  },
+  {
+    "id": "1998",
+    "model": "iPhone 15 Pro",
+    "price": "87 490 руб.",
+    "color": "Blue Titanium",
+    "memory": "128Gb",
+    "image": "https://edwardpnz.ru/img_goods/1/5/65019fedaaa0e.jpeg",
+    "category": "iPhone Pro"
+  },
+  {
+    "id": "2588",
+    "model": "Б/У iPhone 16 Pro",
+    "price": "80 990 руб.",
+    "color": "White Titanium",
+    "memory": "128Gb",
+    "image": "https://edwardpnz.ru/img_goods/1/6/67d43a367df58.jpg",
+    "category": "iPhone Pro"
+  }
+]

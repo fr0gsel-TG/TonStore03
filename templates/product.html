@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.model }} - Каталог iPhone{% endblock %}
+
+{% block content %}
+<!-- Хлебные крошки -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Главная</a></li>
+        <li class="breadcrumb-item"><a href="/catalog">Каталог</a></li>
+        <li class="breadcrumb-item active">{{ product.model }}</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <!-- Изображение товара -->
+    <div class="col-md-6">
+        <img src="{{ product.image_url if product.image_url else 'https://via.placeholder.com/500x400?text=No+Image' }}" 
+             class="img-fluid rounded" alt="{{ product.model }}"
+             onerror="this.src='https://via.placeholder.com/500x400?text=No+Image'">
+    </div>
+    
+    <!-- Информация о товаре -->
+    <div class="col-md-6">
+        <h1>{{ product.model }}</h1>
+        <div class="mb-3">
+            <span class="badge bg-primary">{{ product.category }}</span>
+        </div>
+        
+        <div class="price display-4 mb-3">{{ product.formatted_price }}</div>
+        
+        {% if product.old_price %}
+        <div class="mb-3">
+            <small class="text-muted"><s>Старая цена: {{ product.old_price }}</s></small>
+        </div>
+        {% endif %}
+        
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>Характеристики</h5>
+                <ul class="list-unstyled">
+                    <li><strong>Текущий цвет:</strong> {{ product.current_color }}</li>
+                    <li><strong>Память:</strong> {{ product.current_memory }}</li>
+                    <li><strong>Тип SIM:</strong> {{ product.current_sim }}</li>
+                    <li><strong>ID товара:</strong> {{ product.product_id }}</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Доступные цвета -->
+        {% if product.colors_list %}
+        <div class="mb-3">
+            <strong>Доступные цвета:</strong>
+            <div class="mt-2">
+                {% for color in product.colors_list %}
+                <span class="badge bg-secondary me-1">{{ color }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Доступная память -->
+        {% if product.memory_list %}
+        <div class="mb-3">
+            <strong>Доступная память:</strong>
+            <div class="mt-2">
+                {% for memory in product.memory_list %}
+                <span class="badge bg-info me-1">{{ memory }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        <div class="d-grid gap-2">
+            <a href="{{ url_for('add_to_cart', product_id=product.product_id) }}" class="btn btn-primary btn-lg">
+                <i class="fas fa-cart-plus"></i> В корзину
+            </a>
+            <a href="{{ url_for('crypto_pay', product_id=product.product_id) }}" class="btn btn-success btn-lg">
+                <i class="fab fa-bitcoin"></i> Buy with Crypto
+            </a>
+            <button class="btn btn-outline-secondary">
+                <i class="fas fa-heart"></i> Добавить в избранное
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Похожие товары -->
+{% if similar_products %}
+<div class="row mt-5">
+    <div class="col-12">
+        <h3>Похожие товары</h3>
+        <div class="row">
+            {% for similar in similar_products %}
+            {% if similar.product_id != product.product_id %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="card h-100">
+                    <img src="{{ similar.image_url if similar.image_url else 'https://via.placeholder.com/200x150?text=No+Image' }}" 
+                         class="card-img-top" alt="{{ similar.model }}" style="height: 150px; object-fit: contain;">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ similar.model[:30] }}...</h6>
+                        <div class="price">{{ similar.formatted_price }}</div>
+                        <a href="/product/{{ similar.product_id }}" class="btn btn-sm btn-outline-primary w-100">
+                            Смотреть
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

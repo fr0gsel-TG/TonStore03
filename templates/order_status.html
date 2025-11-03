@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Статус заказа №{{ order.id }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h2>Статус заказа №{{ order.id }}</h2>
+                </div>
+                <div class="card-body">
+                    {% if order.status == 'paid' %}
+                        <h3 class="text-success">✅ Оплата прошла успешно!</h3>
+                        <p>Спасибо за вашу покупку.</p>
+                    {% elif order.status == 'pending' %}
+                        <h3 class="text-warning">⏳ Ожидание подтверждения</h3>
+                        <p>Ваш платеж обрабатывается. Мы обновим статус, как только получим подтверждение.</p>
+                    {% elif order.status == 'failed' %}
+                        <h3 class="text-danger">❌ Ошибка оплаты</h3>
+                        <p>К сожалению, ваш платеж не удалось обработать.</p>
+                    {% else %}
+                        <h3 class="text-info">🤷‍♂️ Неизвестный статус</h3>
+                        <p>Мы получили ваш заказ, но статус платежа пока неизвестен.</p>
+                    {% endif %}
+
+                    {% if product %}
+                    <hr>
+                    <h5>Детали заказа:</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Товар:</strong> {{ product.model }}</li>
+                        <li class="list-group-item"><strong>Цена:</strong> {{ product.formatted_price }}</li>
+                    </ul>
+                    {% endif %}
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">Вернуться на главную</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
